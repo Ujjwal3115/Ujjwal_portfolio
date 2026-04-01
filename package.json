@@ -1,0 +1,67 @@
+{
+  "name": "ujjwal-portfolio",
+  "author": {
+    "name": "Ujjwal Verma",
+    "email": "ujjwalverma3115@gmail.com",
+    "url": "https://alvalens.my.id"
+  },
+  "license": "GPL-3.0",
+  "copyright": "Copyright (C) 2026 Ujjwal Verma",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate-sitemap": "node generate-sitemap.js"
+  },
+  "dependencies": {
+    "@alvalens/react-fullpage-snap": "^1.0.2",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@tabler/icons-react": "^3.38.0",
+    "@tailwindcss/postcss": "^4.0.14",
+    "@vercel/analytics": "^1.5.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "eslint": "9.22.0",
+    "eslint-config-next": "15.2.9",
+    "framer-motion": "^12.5.0",
+    "gsap": "^3.14.2",
+    "lucide-react": "^0.576.0",
+    "motion": "^12.34.3",
+    "next": "15.2.8",
+    "next-themes": "^0.4.6",
+    "nprogress": "^0.2.0",
+    "postcss": "^8.5.3",
+    "prop-types": "^15.8.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-syntax-highlighter": "^16.1.1",
+    "sharp": "^0.33.5",
+    "sitemap": "^8.0.1",
+    "swr": "^2.3.3",
+    "tailwind-merge": "^3.5.0",
+    "tailwindcss": "^4.0.14",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "15.2.9",
+    "@types/react": "19.1.5",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "cross-env": "^7.0.3"
+  },
+  "pnpm": {
+    "overrides": {
+      "@typescript-eslint/parser": "^8.54.0",
+      "@typescript-eslint/eslint-plugin": "^8.54.0",
+      "@typescript-eslint/type-utils": "^8.54.0",
+      "@typescript-eslint/utils": "^8.54.0",
+      "@typescript-eslint/typescript-estree": "^8.54.0"
+    }
+  }
+}
