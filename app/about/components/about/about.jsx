@@ -127,7 +127,7 @@ export default function About() {
 						<span className="text-black font-semibold">Co-founder of Paradize.space</span>
 						, a startup focused on building shared computing and decentralized compute infrastructure. I am also developing{" "}
 						<span className="text-black font-semibold">
-							"Thoughts - The AI Diary,"
+							&quot;Thoughts - The AI Diary,&quot;
 						</span>{" "}
 						a digital diary that uses AI analysis for mood tracking and insight generation. Beyond my projects, my experience includes serving as the{" "}
 						<span className="text-black font-semibold">

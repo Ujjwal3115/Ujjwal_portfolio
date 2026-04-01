@@ -209,7 +209,7 @@ export default function Education() {
 									<span className="text-black font-medium">
 										Certificate of Recognition
 									</span>{" "}
-									for my role as an Organizer of the "Code & Chaos" hackathon in February 2026. Beyond the classroom, I have applied my skills on a national scale, securing a spot as a{" "}
+									for my role as an Organizer of the &quot;Code &amp; Chaos&quot; hackathon in February 2026. Beyond the classroom, I have applied my skills on a national scale, securing a spot as a{" "}
 									<span className="text-black font-medium">
 										Finalist at the Smart India Hackathon (SIH) 2024
 									</span>
