@@ -193,7 +193,7 @@ const MyPage = () => {
 							}}>
 							<Button variation="primary">
 								<Link
-									href={"/docs/LATEST_RESUME.pdf"}
+									href={"/docs/Ujjwal_Verma_resume_ai.pdf"}
 									target="_blank"
 									rel="noopener noreferrer"
 									download>
