@@ -185,14 +185,14 @@ const MyPage = () => {
 						applications.
 						</motion.p>
 						<motion.div
-							className="buttons flex flex-row justify-center items-center space-x-4 mt-10 font-semibold"
+							className="buttons flex flex-col sm:flex-row justify-center items-stretch sm:items-center gap-3 sm:gap-4 mt-8 md:mt-10 font-semibold"
 							initial={{ x: -100, opacity: 0 }}
 							whileInView={{ x: 0, opacity: 1 }}
 							transition={{
 								delay: 0.5,
 								type: "spring",
 							}}>
-							<Button variation="primary">
+							<Button variation="primary" className="!w-full sm:!w-auto !justify-center whitespace-nowrap">
 								<Link
 									href={"/docs/MY_RESUME.pdf"}
 									target="_blank"
@@ -201,7 +201,7 @@ const MyPage = () => {
 									Download Resume
 								</Link>
 							</Button>
-							<Button variation="secondary">
+							<Button variation="secondary" className="!w-full sm:!w-auto !justify-center whitespace-nowrap">
 								<a href="#contact">Contact Me</a>
 							</Button>
 						</motion.div>

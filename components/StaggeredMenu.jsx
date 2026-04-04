@@ -1,5 +1,6 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
+import Link from 'next/link';
 
 export const StaggeredMenu = ({
   position = 'right',
@@ -10,6 +11,7 @@ export const StaggeredMenu = ({
   displayItemNumbering = true,
   className,
   logoUrl = '/image/logo.svg',
+  logoLink = '/',
   topOffset = '0rem',
   menuButtonColor = '#fff',
   openMenuButtonColor = '#fff',
@@ -388,7 +390,7 @@ export const StaggeredMenu = ({
           className="staggered-menu-header absolute top-0 left-0 w-full flex items-center justify-between p-[2em] bg-transparent pointer-events-none z-[9995]"
           aria-label="Main navigation header"
         >
-          <div className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Logo">
+          <Link href={logoLink} className="sm-logo flex items-center select-none pointer-events-auto" aria-label="Go to home page">
             <img
               src={logoUrl}
               alt="Logo"
@@ -397,7 +399,7 @@ export const StaggeredMenu = ({
               width={110}
               height={24}
             />
-          </div>
+          </Link>
 
           <button
             ref={toggleBtnRef}
@@ -550,7 +552,7 @@ export const StaggeredMenu = ({
 .sm-scope .sm-panel-list[data-numbering] { counter-reset: smItem; }
 .sm-scope .sm-panel-list[data-numbering] .sm-panel-item::after { counter-increment: smItem; content: counter(smItem, decimal-leading-zero); position: absolute; top: 0.1em; right: 3.2em; font-size: 18px; font-weight: 400; color: var(--sm-accent, #ff0000); letter-spacing: 0; pointer-events: none; user-select: none; opacity: var(--sm-num-opacity, 0); }
 @media (max-width: 1024px) { .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } .sm-scope .staggered-menu-wrapper[data-open] .sm-logo-img { filter: invert(100%); } }
-@media (max-width: 640px) { .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } .sm-scope .staggered-menu-wrapper[data-open] .sm-logo-img { filter: invert(100%); } }
+@media (max-width: 640px) { .sm-scope .staggered-menu-header { padding: 1rem 1.1rem; background: linear-gradient(180deg, rgba(236, 229, 196, 0.98), rgba(236, 229, 196, 0.92)); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); } .sm-scope .sm-logo-img { height: 24px; } .sm-scope .sm-toggle { padding: 0.55rem 0.75rem; box-shadow: 3px 3px 0 var(--poster-ink); } .sm-scope .staggered-menu-panel { width: 100%; left: 0; right: 0; } .sm-scope .staggered-menu-wrapper[data-open] .sm-logo-img { filter: invert(100%); } }
       `}</style>
     </div>
   );
