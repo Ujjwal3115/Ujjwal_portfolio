@@ -40,6 +40,7 @@ export default function About() {
 									sizes="(max-width: 768px) 80vw, 40vw"
 									className="object-cover"
 									placeholder="blur"
+									loading="lazy"
 								/>
 							</motion.div>
 						</div>
@@ -64,6 +65,7 @@ export default function About() {
 									sizes="(max-width: 768px) 60vw, 25vw"
 									className="object-cover"
 									placeholder="blur"
+									loading="lazy"
 								/>
 							</motion.div>
 						</div>
@@ -90,6 +92,7 @@ export default function About() {
 									sizes="(max-width: 768px) 80vw, 35vw"
 									className="object-cover"
 									placeholder="blur"
+									loading="lazy"
 								/>
 							</motion.div>
 						</div>

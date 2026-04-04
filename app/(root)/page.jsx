@@ -137,6 +137,7 @@ const MyPage = () => {
 									className="rounded-full w-full h-full object-cover "
 									alt="Ujjwal Verma"
 									placeholder="blur"
+									loading="lazy"
 								/>
 							</div>
 						</div>
@@ -226,6 +227,7 @@ const MyPage = () => {
 								placeholder="blur"
 							alt="Ujjwal Verma"
 								className="rounded-[1.4rem] h-full object-cover"
+								loading="lazy"
 							/>
 						</div>
 					</motion.div>
@@ -259,6 +261,7 @@ const MyPage = () => {
 								className="object-cover"
 							alt="Ujjwal Verma"
 								placeholder="blur"
+								loading="lazy"
 							/>
 						</motion.div>
 					</div>
@@ -327,6 +330,7 @@ const MyPage = () => {
 								className="object-cover"
 							alt="My Projects"
 								placeholder="blur"
+								loading="lazy"
 							/>
 						</motion.div>
 					</div>
@@ -398,7 +402,9 @@ const MyPage = () => {
 								className="object-cover"
 							alt="My Setup"
 								placeholder="blur"
+								loading="lazy"
 							/>
+
 						</motion.div>
 					</div>
 					<div className="z-10 w-full absolute md:w-auto  md:left-[10%] top-[60%] md:top-1/3 col-span-2 flex flex-col justify-center items-start md:items-start text-start px-10 overflow-hidden">

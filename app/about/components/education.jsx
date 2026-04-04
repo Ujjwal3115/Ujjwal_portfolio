@@ -1,38 +1,28 @@
+"use client";
+
 import Image from "next/image";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-	faMedal,
-	faGraduationCap,
-	faTrophy,
 	faAward,
 	faChevronDown,
 	faChevronUp,
+	faMedal,
+	faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
 import Me4 from "@/public/image/me_4.webp";
 import Me5 from "@/public/image/me_5.webp";
-import Me6 from "@/public/image/me_3.webp";
+import Me6 from "@/public/image/me_6.png";
 
 function Wrapper({ children }) {
 	return (
-		<div className="mx-auto container gap-10 p-10 grid grid-cols-1 my-10">
+		<div className="mt-16 flex flex-col justify-start items-center w-full px-2 md:px-6 lg:px-10 pb-10">
 			<motion.div
-				className="flex justify-center items-start flex-col mb-5"
-				initial={{
-					opacity: 0,
-					y: 50,
-				}}
-				whileInView={{
-					opacity: 1,
-					y: 0,
-				}}
-				transition={{
-					delay: 0.3,
-					duration: 0.8,
-					type: "spring",
-					stiffness: 100,
-				}}>
+				className="w-full max-w-7xl"
+				initial={{ opacity: 0, y: 30 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, type: "spring", stiffness: 100 }}>
 				{children}
 			</motion.div>
 		</div>

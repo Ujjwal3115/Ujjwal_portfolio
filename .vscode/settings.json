@@ -11,6 +11,12 @@
         "editor.tabSize": 2
     },
     "prettier.singleAttributePerLine": false,
+    "chat.tools.terminal.autoApprove": {
+        "/^node -e \"JSON\\.parse\\(require\\('fs'\\)\\.readFileSync\\('json/data\\.json','utf8'\\)\\); console\\.log\\('data\\.json valid'\\)\"$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    },
     
     
 }

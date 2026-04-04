@@ -19,7 +19,7 @@ const Button = ({ children, variation = "primary", className = "", ...props }) =
 			<span className="relative z-10">{isLinkLike ? child.props.children : children}</span>
 			<span className="pointer-events-none relative ml-3 hidden h-6 w-6 items-center justify-center sm:flex sm:h-7 sm:w-7">
 				<div className="absolute h-2 w-2 rounded-full bg-current transition-all duration-300 ease-in-out group-hover:scale-0 group-hover:opacity-0 " />
-				<CircleArrowUp className="absolute h-6 w-6 rotate-180 scale-0 opacity-0 transition-all duration-300 ease-in-out group-hover:scale-150 group-hover:rotate-45 group-hover:opacity-100 sm:h-7 sm:w-7 group-hover:-mr-3" />
+				<CircleArrowUp className="absolute h-6 w-6 rotate-180 scale-0 opacity-0 transition-all duration-300 ease-in-out group-hover:scale-150 group-hover:rotate-45 group-hover:opacity-100 sm:h-7 sm:w-7 group-hover:-mr-6" />
 			</span>
 		</>
 	);

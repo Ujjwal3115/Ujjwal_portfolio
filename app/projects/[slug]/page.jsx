@@ -11,8 +11,6 @@ import NotFound from "@/app/not-found";
 import Image from "next/image";
 import BlurImage from "@/public/image/placeholder/blur.jpg";
 import { faChevronLeft } from "@fortawesome/free-solid-svg-icons";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 function ProjectImage({ src, alt, index }) {
 	const [loaded, setLoaded] = useState(false);
@@ -38,43 +36,47 @@ function ProjectImage({ src, alt, index }) {
 	);
 }
 
-function ScrollDownButton() {
-  const [isAtBottom, setIsAtBottom] = useState(false);
+function ScrollIndicator() {
+	const [show, setShow] = useState(true);
 
-  const handleScroll = () => {
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-    if (scrollTop < document.documentElement.scrollHeight - document.documentElement.clientHeight) {
+	useEffect(() => {
+		const onScroll = () => {
+			setShow(window.scrollY < 80);
+		};
 
-      window.scrollTo({
-        top: document.documentElement.scrollHeight,
-        behavior: "smooth",
-      });
-				setIsAtBottom(true);
+		onScroll();
+		window.addEventListener("scroll", onScroll);
+		return () => window.removeEventListener("scroll", onScroll);
+	}, []);
 
-    } else {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-			setIsAtBottom(false);
-    }
-  };
+	if (!show) {
+		return null;
+	}
 
-  return (
-    <div className="fixed bottom-5 left-0 right-0 flex justify-center items-center mb-10">
-      <motion.div
-        className="h-10 w-10 bg-neutral-900 rounded-full flex justify-center items-center cursor-pointer"
-        whileHover={{ scale: 1.1 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={handleScroll}
-      >
-        <FontAwesomeIcon
-          icon={isAtBottom ? faChevronUp : faChevronDown}
-          className="text-white text-2xl"
-        />
-      </motion.div>
-    </div>
-  );
+	return (
+		<motion.div
+			className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-3"
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1, transition: { duration: 0.6, delay: 0.4 } }}
+			exit={{ opacity: 0 }}>
+			<span className="text-[10px] uppercase tracking-[4px] text-gray-500 font-medium">
+				Scroll
+			</span>
+			<motion.div
+				className="w-[1.5px] h-14 bg-gray-500 origin-top"
+				animate={{
+					scaleY: [0, 1, 1],
+					opacity: [0, 1, 0],
+				}}
+				transition={{
+					duration: 2,
+					repeat: Infinity,
+					ease: "easeInOut",
+					times: [0, 0.5, 1],
+				}}
+			/>
+		</motion.div>
+	);
 }
 
 
@@ -129,14 +131,11 @@ function Page(props) {
 		<div className="relative min-h-screen w-full gap-4 p-10 flex justify-center items-center flex-col mb-10 ">
 			<button
 				onClick={() => router.back()}
-				className="fixed top-2 -left-2 md:left-10 flex justify-center items-center rounded-full p-4 transition duration-300 ease-in-out z-50"
+				className="fixed top-16 md:top-20 left-4 md:left-10 flex justify-center items-center rounded-full p-4 transition duration-300 ease-in-out z-50 "
 				aria-label="Go back">
-				<FontAwesomeIcon
-					icon={faChevronLeft}
-					className="text-black pr-10"
-				/>
+				<FontAwesomeIcon icon={faChevronLeft} className="text-black pr-10 cursor-pointer" />
 			</button>
-			<ScrollDownButton />
+			<ScrollIndicator />
 			<div className="min-h-screen flex justify-center items-center">
 				<div className="mx-auto grid grid-cols-1 md:grid-cols-2  mt-10 md:mt-0">
 					<div className="min-h-screen sm:min-h-0 flex justify-center items-start flex-col mb-5 space-y-10 mx-auto">

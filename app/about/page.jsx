@@ -38,6 +38,7 @@ export default function Page() {
 								sizes="(max-width: 768px) 80vw, 30vw"
 								className="object-cover"
 								placeholder="blur"
+								loading="lazy"
 							/>
 						</motion.div>
 					</div>
