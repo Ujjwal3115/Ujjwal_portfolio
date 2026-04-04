@@ -11,7 +11,7 @@ import VariableProximity from '@/components/VariableProximity.jsx';
 // import Me from "@/public/image/ujjwal-front.webp";
 import Me from "@/public/image/me_6.png";
 import MeAbout from "@/public/image/me_3.webp";
-import Setup from "@/public/image/setup.jpg";
+import Setup from "@/public/image/setup.webp";
 import ProjectAll from "@/public/image/projects.png";
 import Hr from "@/components/Hr";
 // icons
