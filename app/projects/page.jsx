@@ -170,7 +170,7 @@ export default function Page() {
 				</motion.div>
 			</section>
 
-			<section className="mt-16 flex flex-col justify-start items-center w-full px-6 md:px-10">
+			<section className="mt-16 flex flex-col justify-start items-center w-full px-8 sm:px-10 md:px-10">
 				<div className="flex justify-center items-start flex-col my-5 w-full max-w-7xl mx-auto">
 					<Hr variant="long" />
 					<h2 className="text-3xl font-bold mt-3">Selected Projects</h2>
@@ -227,7 +227,7 @@ export default function Page() {
 				</div>
 			</section>
 
-			<section className="mt-20 flex flex-col justify-start items-center w-full px-6 md:px-10 pb-20">
+			<section className="mt-20 flex flex-col justify-start items-center w-full px-8 sm:px-10 md:px-10 pb-20">
 				<div className="flex justify-between items-end w-full max-w-7xl mx-auto gap-4 flex-wrap">
 					<div>
 						<Hr variant="long" />

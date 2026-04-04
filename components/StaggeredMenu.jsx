@@ -1,6 +1,7 @@
 import React, { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export const StaggeredMenu = ({
   position = 'right',
@@ -22,6 +23,7 @@ export const StaggeredMenu = ({
   onMenuOpen,
   onMenuClose
 }) => {
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [isInitialized, setIsInitialized] = useState(false);
   const openRef = useRef(false);
@@ -331,6 +333,43 @@ export const StaggeredMenu = ({
     }
   }, [playClose, animateIcon, animateColor, animateText, onMenuClose]);
 
+  const handleItemClick = useCallback(
+    (event, link) => {
+      if (!link) {
+        closeMenu();
+        return;
+      }
+
+      if (!link.includes('#')) {
+        event.preventDefault();
+        closeMenu();
+        router.push(link);
+        return;
+      }
+
+      try {
+        const targetUrl = new URL(link, window.location.origin);
+        const hash = targetUrl.hash.replace('#', '');
+        const isSamePath = targetUrl.pathname === window.location.pathname;
+
+        if (isSamePath && hash) {
+          event.preventDefault();
+
+          window.history.pushState(null, '', `#${hash}`);
+          window.dispatchEvent(new Event('hashchange'));
+          window.dispatchEvent(new CustomEvent('fullpage:navigate', { detail: { hash } }));
+          closeMenu();
+          return;
+        }
+      } catch {
+        // Keep default browser navigation for malformed links.
+      }
+
+      closeMenu();
+    },
+    [closeMenu, router]
+  );
+
   React.useEffect(() => {
     if (!closeOnClickAway || !open) return;
 
@@ -467,6 +506,7 @@ export const StaggeredMenu = ({
                       href={it.link}
                       aria-label={it.ariaLabel}
                       data-index={idx + 1}
+                      onClick={(event) => handleItemClick(event, it.link)}
                     >
                       <span className="sm-panel-itemLabel inline-block [transform-origin:50%_100%] will-change-transform">
                         {it.label}

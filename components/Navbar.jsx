@@ -22,6 +22,7 @@ const Navbar = () => {
 			isFixed={true}
 			topOffset="0rem"
 			logoUrl="/image/logo.svg"
+			logoLink="/#home"
 			menuButtonColor="#121212"
 			openMenuButtonColor="#121212"
 			changeMenuColorOnOpen={true}

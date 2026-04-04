@@ -1,6 +1,6 @@
 "use client";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
 	CodepenIcon,
 	WebhookIcon,
@@ -111,8 +111,61 @@ const skillCategories = {
 	},
 };
 
-function SkillCard({ skill, isSelected, onClick }) {
+function SkillCard({ skill, isSelected, onClick, isMobile, isExpanded }) {
 	const Icon = skill.icon;
+
+	if (isMobile) {
+		return (
+			<motion.div
+				onClick={onClick}
+				className={`relative cursor-pointer rounded-2xl border p-5 transition-all duration-300 ${
+					isExpanded
+						? "bg-white/25 border-black border-2 shadow-lg"
+						: "bg-white/10 border-gray-300/20"
+				}`}
+				whileTap={{ scale: 0.98 }}
+				initial={{ opacity: 0, y: 20 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.3 }}>
+				<div className="relative z-10 flex flex-col items-center text-center space-y-3">
+					<div className="p-4 rounded-xl bg-white/20">
+						<Icon className="w-8 h-8 text-black" />
+					</div>
+					<div>
+						<h3 className="font-semibold text-black text-2xl mb-1">{skill.title}</h3>
+						<p className="text-gray-600 text-[15px] leading-relaxed">{skill.description}</p>
+					</div>
+				</div>
+
+				<AnimatePresence initial={false}>
+					{isExpanded ? (
+						<motion.div
+							initial={{ height: 0, opacity: 0, marginTop: 0 }}
+							animate={{ height: "auto", opacity: 1, marginTop: 14 }}
+							exit={{ height: 0, opacity: 0, marginTop: 0 }}
+							transition={{ duration: 0.28, ease: "easeOut" }}
+							className="overflow-hidden">
+							<div className="border-t border-black/15 pt-3">
+								<div className="flex flex-wrap justify-center gap-2 max-h-[180px] overflow-y-auto pr-1">
+									{skill.languages.map((item) => (
+										<span
+											key={item.name}
+											className={`px-3 py-1 rounded-full text-sm font-medium border ${
+												item.highlight
+													? "bg-black text-white border-black"
+													: "bg-white/70 text-black border-gray-400/40"
+											}`}>
+											{item.name}
+										</span>
+									))}
+								</div>
+							</div>
+						</motion.div>
+					) : null}
+				</AnimatePresence>
+			</motion.div>
+		);
+	}
 
 	return (
 		<motion.div
@@ -238,6 +291,27 @@ function SkillDetails({ selectedSkill }) {
 
 export default function Skills() {
 	const [selectedCategory, setSelectedCategory] = useState("languages");
+	const [expandedCategory, setExpandedCategory] = useState(null);
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+		const handleMediaChange = (event) => {
+			setIsMobile(event.matches);
+			if (!event.matches) {
+				setExpandedCategory(null);
+			}
+		};
+
+		setIsMobile(mediaQuery.matches);
+		mediaQuery.addEventListener("change", handleMediaChange);
+
+		return () => {
+			mediaQuery.removeEventListener("change", handleMediaChange);
+		};
+	}, []);
+
 	return (
 		<div className="relative">
 			<div className="mx-auto container px-6 py-20">
@@ -266,16 +340,29 @@ export default function Skills() {
 							<SkillCard
 								skill={skill}
 								isSelected={selectedCategory === key}
-								onClick={() => setSelectedCategory(key)}
+								isMobile={isMobile}
+								isExpanded={expandedCategory === key}
+								onClick={() => {
+									if (isMobile) {
+										setExpandedCategory((current) =>
+											current === key ? null : key,
+										);
+										return;
+									}
+
+									setSelectedCategory(key);
+								}}
 							/>
 						</motion.div>
 					))}
 				</div>
 
 				{/* Skill Details */}
-				<AnimatePresence mode="wait">
-					<SkillDetails selectedSkill={skillCategories[selectedCategory]} />
-				</AnimatePresence>
+				{!isMobile ? (
+					<AnimatePresence mode="wait">
+						<SkillDetails selectedSkill={skillCategories[selectedCategory]} />
+					</AnimatePresence>
+				) : null}
 			</div>
 		</div>
 	);

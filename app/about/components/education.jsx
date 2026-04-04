@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,6 +11,9 @@ import {
 	faMedal,
 	faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
+import { IoLogoMicrosoft } from "react-icons/io5";
+import { SiPython, SiC } from "react-icons/si";
+import { FaExternalLinkAlt, FaGoogle, FaJava } from "react-icons/fa";
 import Me4 from "@/public/image/me_4.webp";
 import Me5 from "@/public/image/me_5.webp";
 import Me6 from "@/public/image/me_6.png";
@@ -31,46 +34,57 @@ function Wrapper({ children }) {
 
 export default function Education() {
 	const [isExpanded, setIsExpanded] = useState(false);
+	const [isMobile, setIsMobile] = useState(false);
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia("(max-width: 767px)");
+
+		const handleMediaChange = (event) => {
+			setIsMobile(event.matches);
+		};
+
+		setIsMobile(mediaQuery.matches);
+		mediaQuery.addEventListener("change", handleMediaChange);
+
+		return () => {
+			mediaQuery.removeEventListener("change", handleMediaChange);
+		};
+	}, []);
 
 	const achievementsByYear = {
 		2026: [
+			{
+				icon: faMedal,
+				title: "GATE DA Qualified",
+				subtitle: "AIR 7528",
+				date: "2026",
+				color: "from-yellow-400 to-orange-500",
+			},
+			{
+				icon: faAward,
+				title: "Designs & PR Lead",
+				subtitle: "Google Developer Groups On Campus, Dronacharya College of Engineering",
+				date: "2026",
+				color: "from-blue-500 to-purple-600",
+			},
 			{
 				icon: faAward,
 				title: "Organizer | Code & Chaos Hackathon",
 				subtitle: "GDG On Campus, Dronacharya College of Engineering",
 				date: "Feb 2026",
 				color: "from-blue-500 to-purple-600",
-			},
+			}
+
 		],
 		2025: [
-			{
-				icon: faMedal,
-				title: "Certification | Foundations: Data, Data, Everywhere",
-				subtitle: "Google via Coursera",
-				date: "Nov 2025",
-				color: "from-yellow-400 to-orange-500",
-			},
-			{
+				{
 				icon: faTrophy,
 				title: "Winner (1st Prize)",
 				subtitle: "Multilingual AI-Powered System for Online Radicalization Detection",
 				date: "2025",
 				color: "from-yellow-400 to-orange-500",
 			},
-			{
-				icon: faAward,
-				title: "Silver Elite Certification | Java Programming",
-				subtitle: "NPTEL",
-				date: "Apr 2025",
-				color: "from-blue-500 to-purple-600",
-			},
-			{
-				icon: faAward,
-				title: "Technical Certification | Tech Saksham Training Program",
-				subtitle: "Edunet Foundation in collaboration with SAP & Microsoft",
-				date: "Mar 2025",
-				color: "from-blue-500 to-purple-600",
-			},
+
 		],
 		2024: [
 			{
@@ -80,23 +94,9 @@ export default function Education() {
 				date: "2024",
 				color: "from-blue-500 to-purple-600",
 			},
-			{
-				icon: faAward,
-				title: "Technical Certification | Introduction to Python",
-				subtitle: "Infosys Springboard",
-				date: "Apr 2024",
-				color: "from-blue-500 to-purple-600",
-			},
 		],
 		2023: [
 			{
-				icon: faAward,
-				title: "Technical Certification | C Programming",
-				subtitle: "Spoken Tutorial Project, IIT Bombay",
-				date: "Dec 2023",
-				color: "from-blue-500 to-purple-600",
-			},
-						{
 				icon: faMedal,
 				title: "2nd Place | Engineers Day Idea Competition",
 				subtitle: "Fire-resistant system for car accidents",
@@ -105,6 +105,71 @@ export default function Education() {
 			},
 		],
 	};
+
+	const certificationsData = [
+		{
+			id: 1,
+			name: "Azure Data Fundamentals (DP-900)",
+			issuingAuthority: "Microsoft",
+			date: "2025",
+			icon: IoLogoMicrosoft,
+			pdfLink:
+				"https://learn.microsoft.com/api/credentials/share/en-us/UJJWALVERMA-9584/A451E854839C15D1?sharingId=BCB5914D26E53270",
+		},
+		{
+			id: 2,
+			name: "Generative AI Fundamentals",
+			issuingAuthority: "Databricks",
+			date: "2025",
+			icon: SiPython,
+			pdfLink:
+				"https://credentials.databricks.com/b9feafcf-6ac8-4f60-ab40-e15f069b81a5#acc.5AEF3qe2",
+		},
+		{
+			id: 3,
+			name: "Foundations: Data, Data, Everywhere",
+			issuingAuthority: "Google via Coursera",
+			date: "Nov 2025",
+			icon: FaGoogle,
+			pdfLink: "https://coursera.org/share/bf7d668be39900136d22cb57cf4bee7e",
+		},
+		{
+			id: 4,
+			name: "Programing in Java",
+			issuingAuthority: "NPTEL with IIT Kharagpur Collaboration",
+			date: "April 2025",
+			icon: FaJava,
+			pdfLink:
+				"https://drive.google.com/file/d/1kTS-XPEO7RcINrIRymD0SD3cQ36Lz9gR/view?usp=sharing",
+		},
+		{
+			id: 5,
+			name: "TechSaksham Training Program",
+			issuingAuthority: "Edunet with Microsoft & SAP Collaboration",
+			date: "March 2025",
+			icon: IoLogoMicrosoft,
+			pdfLink:
+				"https://drive.google.com/file/d/1Wv1lUooc_MNDVeydgRk0J9tmvtr_PuLa/view?usp=drive_link",
+		},
+		{
+			id: 6,
+			name: "Introduction to python",
+			issuingAuthority: "Infosys Springboard",
+			date: "April 2024",
+			icon: SiPython,
+			pdfLink:
+				"https://drive.google.com/file/d/1JXXti4hoj8QFSkYZq-kjJTrAUoYBo8T3/view?usp=sharing",
+		},
+		{
+			id: 7,
+			name: "C Certification",
+			issuingAuthority: "Spoken Tutorial Project at IIT Bombay",
+			date: "December 2023",
+			icon: SiC,
+			pdfLink:
+				"https://drive.google.com/file/d/1pIpRPXozDhJGlLuLy1ozQALmtbQmkIUE/view?usp=sharing",
+		},
+	];
 
 	// Flatten all achievements into a single array for easier limiting
 	const allAchievements = Object.entries(achievementsByYear)
@@ -272,10 +337,14 @@ export default function Education() {
 												) : null}
 
 												{/* Glassmorphism achievement card with monochrome to color effect */}
-												<div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-4 shadow-lg hover:bg-white/30 transition-all duration-300 hover:shadow-xl grayscale hover:grayscale-0 cursor-default">
+												<div className={`${
+													isMobile
+														? "bg-white/25 backdrop-blur-md border border-black/15 rounded-2xl p-4 shadow-md cursor-default"
+														: "bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl p-4 shadow-lg hover:bg-white/30 transition-all duration-300 hover:shadow-xl md:grayscale md:hover:grayscale-0 cursor-default"
+												}`}>
 													<div className="flex items-center gap-4">
 														<div
-															className={`aspect-square w-10 rounded-full bg-gradient-to-r ${achievement.color} flex items-center justify-center text-primary-foreground transition-all duration-300`}>
+																className={`aspect-square w-10 rounded-full bg-gradient-to-r ${isMobile ? "from-[var(--poster-accent)] to-yellow-500" : achievement.color} flex items-center justify-center text-primary-foreground transition-all duration-300`}>
 															<FontAwesomeIcon
 																icon={
 																	achievement.icon
@@ -341,6 +410,49 @@ export default function Education() {
 									</button>
 								</motion.div>
 							)}
+						</div>
+
+						<div className="mt-10">
+							<h3 className="font-semibold text-xl">Certifications</h3>
+							<p className="text-md font-normal mb-4 text-gray-600">
+								Verified certifications and technical trainings.
+							</p>
+							<div className="space-y-3">
+								{certificationsData.map((certification) => {
+									const CertificationIcon = certification.icon;
+									return (
+										<div
+											key={certification.id}
+											className="bg-white/25 backdrop-blur-md border border-black/15 rounded-2xl p-4 shadow-md">
+											<div className="flex items-start gap-4">
+												<div className="aspect-square w-10 rounded-full bg-gradient-to-r from-[var(--poster-accent)] to-yellow-500 flex items-center justify-center text-black">
+													<CertificationIcon className="h-5 w-5" />
+												</div>
+												<div className="flex-1">
+													<h4 className="font-medium text-black">
+														{certification.name}
+													</h4>
+													<p className="text-sm text-gray-700">
+														{certification.issuingAuthority}
+													</p>
+													<div className="text-xs text-gray-500 mt-1 mb-2">
+														{certification.date}
+													</div>
+													{certification.pdfLink && certification.pdfLink !== "#" ? (
+														<a
+															href={certification.pdfLink}
+															target="_blank"
+															rel="noopener noreferrer"
+															className="inline-flex items-center gap-2 text-sm font-medium text-black hover:text-gray-700 transition-colors">
+															View Certificate <FaExternalLinkAlt className="h-3 w-3" />
+														</a>
+													) : null}
+												</div>
+											</div>
+										</div>
+									);
+								})}
+							</div>
 						</div>
 					</motion.div>
 				</div>

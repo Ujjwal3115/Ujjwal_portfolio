@@ -33,7 +33,7 @@ function ScrollIndicator() {
 		<AnimatePresence>
 			{activeIndex === 0 && !dismissed && (
 				<motion.div
-					className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 flex flex-col items-center gap-3"
+					className="fixed bottom-8 left-1/2 -translate-x-1/2 z-30 hidden md:flex flex-col items-center gap-3"
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1, transition: { duration: 0.6, delay: 1.2 } }}
 					exit={{ opacity: 0, transition: { duration: 0.4 } }}>
@@ -60,7 +60,7 @@ function ScrollIndicator() {
 }
 
 function FullPageHashNavigator() {
-	const { moveTo } = useFullPage();
+	const { moveTo, totalSections } = useFullPage();
 
 	useEffect(() => {
 		const mapHashToIndex = (hash) => {
@@ -100,21 +100,53 @@ function FullPageHashNavigator() {
 		window.addEventListener("hashchange", handleHashChange);
 		window.addEventListener("fullpage:navigate", handleMenuNavigate);
 
-		if (window.location.hash) {
-			handleHashChange();
-		}
-
 		return () => {
 			window.removeEventListener("hashchange", handleHashChange);
 			window.removeEventListener("fullpage:navigate", handleMenuNavigate);
 		};
 	}, [moveTo]);
 
+	useEffect(() => {
+		if (!totalSections || !window.location.hash) {
+			return;
+		}
+
+		const hash = window.location.hash.replace("#", "");
+		const hashIndexMap = {
+			home: 0,
+			about: 1,
+			projects: 2,
+			contact: 3,
+		};
+
+		const targetIndex = hashIndexMap[hash];
+		if (typeof targetIndex === "number") {
+			moveTo(targetIndex);
+		}
+	}, [moveTo, totalSections]);
+
 	return null;
 }
 
 const MyPage = () => {
 	const heroTitleRef = useRef(null);
+	const { moveTo } = useFullPage();
+
+	const handleContactNavigate = (event) => {
+		event.preventDefault();
+		const sections = document.querySelectorAll(".section");
+		const contactSection = sections[3];
+
+		window.history.pushState(null, "", "#contact");
+
+		if (contactSection) {
+			contactSection.scrollIntoView({ behavior: "smooth", block: "start" });
+			window.dispatchEvent(new Event("hashchange"));
+			return;
+		}
+
+		moveTo(3);
+	};
 
 	return (
 		<FullPageWrapper>
@@ -202,7 +234,7 @@ const MyPage = () => {
 								</Link>
 							</Button>
 							<Button variation="secondary">
-								<a href="#contact">Contact Me</a>
+								<a href="#contact" onClick={handleContactNavigate}>Contact Me</a>
 							</Button>
 						</motion.div>
 					</motion.div>
