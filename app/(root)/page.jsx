@@ -13,12 +13,16 @@ import Me from "@/public/image/me_6.png";
 import MeAbout from "@/public/image/me_3.webp";
 import Setup from "@/public/image/setup.webp";
 import ProjectAll from "@/public/image/projects.png";
+import AzureDataBadge from "@/public/image/azure-data-fundamentals-600x600.png";
+import SqlBadge from "@/public/image/sql_badge.png";
+import DatabricksBadge from "@/public/image/data_bricks.png";
 import Hr from "@/components/Hr";
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faXTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faHackerrank } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 function ScrollIndicator() {
@@ -203,19 +207,69 @@ const MyPage = () => {
 								falloff='linear'
 							/>
 						</motion.h1>
-						<motion.p
-							className="title text-md 2xl:text-xl mt-4 tracking-wider text-gray-600 leading-[1.7rem] cursor-default max-w-2xl"
+						<motion.div
+							className="mt-4 flex w-full max-w-2xl flex-col gap-4 md:flex-row md:items-center"
 							initial={{ x: -100, opacity: 0 }}
 							whileInView={{ x: 0, opacity: 1 }}
 							transition={{
 								delay: 0.4,
 								type: "spring",
 							}}>
-						Hi! I am Ujjwal, an ML enthusiast and full-stack developer. I am
-						passionate about tackling complex problems by bridging the gap
-						between data-driven machine learning models and user-centric web
-						applications.
-						</motion.p>
+							<p className="title text-md 2xl:text-xl tracking-wider text-gray-600 leading-[1.7rem] cursor-default md:flex-1">
+								Hi! I am Ujjwal, an ML enthusiast and full-stack developer. I am
+								passionate about tackling complex problems by bridging the gap
+								between data-driven machine learning models and user-centric web
+								applications.
+							</p>
+							<div className="flex flex-col items-center justify-center md:ml-6 md:shrink-0">
+								<div className="mb-2">
+									<a
+										href="https://www.hackerrank.com/profile/ujjwalverma3115"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open HackerRank profile"
+										title="Open HackerRank profile"
+										className="block h-16 w-16 md:h-20 md:w-20 overflow-hidden rounded-md">
+										<Image
+											src={SqlBadge}
+											alt="HackerRank SQL badge"
+											className="h-full w-full object-contain"
+											loading="lazy"
+										/>
+									</a>
+								</div>
+								<div className="flex items-center justify-center gap-3 md:gap-4">
+									<a
+										href="https://learn.microsoft.com/api/credentials/share/en-us/UJJWALVERMA-9584/A451E854839C15D1?sharingId=BCB5914D26E53270"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open Azure Data credential"
+										title="Open Azure Data credential"
+										className="block h-16 w-16 md:h-20 md:w-20 overflow-hidden rounded-md">
+										<Image
+											src={AzureDataBadge}
+											alt="Azure Data Fundamentals badge"
+											className="h-full w-full object-contain"
+											loading="lazy"
+										/>
+									</a>
+									<a
+										href="https://credentials.databricks.com/b9feafcf-6ac8-4f60-ab40-e15f069b81a5#acc.OKXIM6na"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Open Databricks credential"
+										title="Open Databricks credential"
+										className="block h-16 w-16 md:h-20 md:w-20 overflow-hidden rounded-md">
+										<Image
+											src={DatabricksBadge}
+											alt="Databricks certification badge"
+											className="h-full w-full object-contain"
+											loading="lazy"
+										/>
+									</a>
+								</div>
+							</div>
+						</motion.div>
 						<motion.div
 							className="buttons flex flex-row justify-center items-center space-x-4 mt-10 font-semibold"
 							initial={{ x: -100, opacity: 0 }}
@@ -542,6 +596,23 @@ const MyPage = () => {
 								}}>
 								<FontAwesomeIcon
 									icon={faLinkedin}
+									className="text-3xl"
+								/>
+							</motion.a>
+							<motion.a
+								href="https://www.hackerrank.com/profile/ujjwalverma3115"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="HackerRank profile"
+								className="flex justify-center items-center bg-black w-14 h-14 rounded-full text-gray-100 hover:bg-[var(--poster-accent)] hover:text-black transition-all ease-in-out duration-300"
+								initial={{ opacity: 0, y: 40 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								transition={{
+									y: { delay: 0.5 },
+									opacity: { delay: 0.6 },
+								}}>
+								<FontAwesomeIcon
+									icon={faHackerrank}
 									className="text-3xl"
 								/>
 							</motion.a>
