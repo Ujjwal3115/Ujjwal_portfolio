@@ -61,6 +61,20 @@ export default function Education() {
 				color: "from-yellow-400 to-orange-500",
 			},
 			{
+				icon: faTrophy,
+				title: "Student Lead Coordinator | Smart AI 2.0",
+				subtitle: "Organized by Dept of AIML, Dronacharya College of Engineering during Dronathon 2026",
+				date: "2026",
+				color: "from-purple-500 to-pink-600",
+			},
+			{
+				icon: faTrophy,
+				title: "Student Lead Coordinator | Hack-o-Relay 5.0",
+				subtitle: "Organized by GDG On Campus, Dronacharya College of Engineering during Dronathon 2026",
+				date: "2026",
+				color: "from-purple-500 to-pink-600",
+			},
+			{
 				icon: faAward,
 				title: "Designs & PR Lead",
 				subtitle: "Google Developer Groups On Campus, Dronacharya College of Engineering",
