@@ -16,6 +16,7 @@ import ProjectAll from "@/public/image/projects.png";
 import AzureDataBadge from "@/public/image/azure-data-fundamentals-600x600.png";
 import SqlBadge from "@/public/image/sql_badge.png";
 import DatabricksBadge from "@/public/image/data_bricks.png";
+import ProblemBadge from "@/public/image/problem_solving_badge.png";
 import Hr from "@/components/Hr";
 // icons
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -239,6 +240,20 @@ const MyPage = () => {
 									</a>
 								</div>
 								<div className="flex items-center justify-center gap-3 md:gap-4">
+									<a
+										href="https://www.hackerrank.com/profile/ujjwalverma3115"
+										target="_blank"
+										rel="noopener noreferrer"
+										aria-label="Problem Solving badge"
+										title="Open Hackerrank Profile"
+										className="block h-16 w-16 md:h-20 md:w-20 overflow-hidden rounded-md">
+										<Image
+											src={ProblemBadge}
+											alt="Problem Solving 5-star badge"
+											className="h-full w-full object-contain"
+											loading="lazy"
+										/>
+									</a>
 									<a
 										href="https://learn.microsoft.com/api/credentials/share/en-us/UJJWALVERMA-9584/A451E854839C15D1?sharingId=BCB5914D26E53270"
 										target="_blank"

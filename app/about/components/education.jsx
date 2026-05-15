@@ -13,7 +13,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { IoLogoMicrosoft } from "react-icons/io5";
 import { SiPython, SiC } from "react-icons/si";
-import { FaExternalLinkAlt, FaGoogle, FaJava } from "react-icons/fa";
+import { FaExternalLinkAlt, FaGoogle, FaJava, FaAward } from "react-icons/fa";
 import Me4 from "@/public/image/me_4.webp";
 import Me5 from "@/public/image/me_5.webp";
 import Me6 from "@/public/image/me_6.png";
@@ -58,6 +58,20 @@ export default function Education() {
 				title: "GATE DA Qualified",
 				subtitle: "AIR 7528",
 				date: "2026",
+				color: "from-yellow-400 to-orange-500",
+			},
+			{
+				icon: faMedal,
+				title: "Problem Solving — 5 Star Badge",
+				subtitle: "HackerRank (Problem Solving) — 5 stars",
+				date: "May 2026",
+				color: "from-yellow-400 to-orange-500",
+			},
+			{
+				icon: faMedal,
+				title: "SQL — 5 Star Badge",
+				subtitle: "HackerRank (SQL) — 5 stars",
+				date: "April 2026",
 				color: "from-yellow-400 to-orange-500",
 			},
 			{
@@ -129,6 +143,14 @@ export default function Education() {
 			icon: IoLogoMicrosoft,
 			pdfLink:
 				"https://learn.microsoft.com/api/credentials/share/en-us/UJJWALVERMA-9584/A451E854839C15D1?sharingId=BCB5914D26E53270",
+		},
+		{
+			id: 8,
+			name: "Elite + Gold in Neural Networks for Computer Vision and Natural Language Processing",
+			issuingAuthority: "NPTEL with IIT Guwahati",
+			date: "May 2026",
+			icon: FaAward,
+			pdfLink: "https://nptel.ac.in/noc/E_Certificate/NOC26CS04S95460071104997845",
 		},
 		{
 			id: 2,
