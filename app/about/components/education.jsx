@@ -139,7 +139,7 @@ export default function Education() {
 			id: 1,
 			name: "Azure Data Fundamentals (DP-900)",
 			issuingAuthority: "Microsoft",
-			date: "2025",
+			date: "April 2026",
 			icon: IoLogoMicrosoft,
 			pdfLink:
 				"https://learn.microsoft.com/api/credentials/share/en-us/UJJWALVERMA-9584/A451E854839C15D1?sharingId=BCB5914D26E53270",
@@ -153,10 +153,18 @@ export default function Education() {
 			pdfLink: "https://nptel.ac.in/noc/E_Certificate/NOC26CS04S95460071104997845",
 		},
 		{
+			id: 9,
+			name: "Elite + Gold in Deep Learning - IIT Ropar",
+			issuingAuthority: "NPTEL with IIT Madras",
+			date: "May 2026",
+			icon: FaAward,
+			pdfLink: "https://nptel.ac.in/noc/E_Certificate/NOC26CS66S15460052204997845",
+		},
+		{
 			id: 2,
 			name: "Generative AI Fundamentals",
 			issuingAuthority: "Databricks",
-			date: "2025",
+			date: "April 2026",
 			icon: SiPython,
 			pdfLink:
 				"https://credentials.databricks.com/b9feafcf-6ac8-4f60-ab40-e15f069b81a5#acc.5AEF3qe2",
