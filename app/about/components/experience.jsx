@@ -57,6 +57,28 @@ const experiences = [
 			"Building Paradize Space, Which is a decentralized infrastructure network (DePIN) that aggregates the world's idle, fragmented GPU capacity—from high-end gaming rigs to independent data centers—into a single, programmable supercomputer.",
 		skills: ["Next.js", "NOSQL", "Figma", "Teamwork"],
 	},
+	{
+		id: 5,
+		startDate: "Apr 2026",
+		endDate: "Present",
+		company: "Veldon Lab",
+		position: "Technical Partner & CTO",
+		type: "Part-time / Contract",
+		location: "Remote, United States",
+		description: "Co-leading product architecture and technical strategy, shipping distributed sub-services and platforms like antrx.tech. Engineered multi-agent logic frameworks for automated UI/UX generation, improving production frontend code accuracy by 40%. Constructed advanced generative video workflows using ComfyUI and optimized deep prompt sequencing for Higgsfield AI models.",
+		skills: ["Agentic AI", "ComfyUI", "Architecture", "Higgsfield AI"],
+	},
+	{
+		id: 6,
+		startDate: "Jun 2026",
+		endDate: "Present",
+		company: "JK Papers",
+		position: "Agentic AI Developer",
+		type: "Intern - Full Time",
+		location: "Faridabad, India",
+		description: "Architecting enterprise-grade Agentic AI workflows using LangGraph and CrewAI to automate core internal business logic. Optimizing secure Retrieval-Augmented Generation (RAG) pipelines for data extraction from complex enterprise data lakes. Integrating autonomous LLM agents via FastAPI into existing corporate infrastructure ensuring real-time operations.",
+		skills: ["LangGraph", "CrewAI", "RAG", "FastAPI"],
+	},
 ];
 
 experiences.reverse();
@@ -93,11 +115,10 @@ function TimelineCard({ experience, index, isEven }) {
 			initial={{ opacity: 0, y: -20 }}
 			whileInView={{ opacity: 1, y: 0 }}
 			transition={{ delay: index * 0.15, duration: 0.5 }}
-			className={`flex ps-10 md:ps-0 ${
-				isEven
+			className={`flex ps-10 md:ps-0 ${isEven
 					? "md:justify-center md:translate-x-68"
 					: "md:justify-center md:-translate-x-68"
-			} justify-center mb-4`}>
+				} justify-center mb-4`}>
 			<div className="bg-gradient-to-r from-black to-gray-800 text-white px-12 py-3 rounded-xl shadow-lg border border-gray-600 min-w-max">
 				<div className="flex items-center justify-center gap-6">
 					<div className="text-center">
@@ -127,9 +148,8 @@ function ExperienceCard({ experience, index, isEven }) {
 			initial={{ opacity: 0, y: 50 }}
 			whileInView={{ opacity: 1, y: 0 }}
 			transition={{ delay: index * 0.2, duration: 0.6 }}
-			className={`relative group ${
-				isEven ? "md:ml-auto md:pl-12" : "md:mr-auto md:pr-12"
-			} md:w-1/2`}>
+			className={`relative group ${isEven ? "md:ml-auto md:pl-12" : "md:mr-auto md:pr-12"
+				} md:w-1/2`}>
 			{" "}
 			{/* Card */}
 			<div

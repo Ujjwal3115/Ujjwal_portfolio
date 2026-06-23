@@ -13,58 +13,58 @@ import {
 
 const skillCategories = {
 	languages: {
-		title: "Languages",
+		title: "Languages & Core",
 		icon: CodepenIcon,
-		description: "Core programming and query languages I use",
+		description: "Core programming and computational fundamentals",
 		languages: [
-			{ name: "C", highlight: true },
+			{ name: "Python", highlight: true },
 			{ name: "Java", highlight: true },
 			{ name: "JavaScript", highlight: true },
-			{ name: "Python", highlight: true },
-			{ name: "R", highlight: false },
 			{ name: "SQL", highlight: true },
+			{ name: "C", highlight: true },
+			{ name: "Data Structures & Algorithms (DSA)", highlight: true },
+			{ name: "R", highlight: false },
+			{ name: "HTML", highlight: false },
+			{ name: "CSS", highlight: false },
 		],
 		tools: ["Problem Solving", "DSA", "OOP", "Debugging"],
 	},
 	ai: {
-		title: "Machine Learning & AI",
+		title: "Gen AI & ML",
 		icon: ActivityIcon,
 		description: "Building intelligent systems and AI-powered workflows",
 		languages: [
-			{ name: "Deep Learning", highlight: true },
-			{ name: "LLMs", highlight: true },
+			{ name: "LLMs (OpenAI, Gemini)", highlight: true },
+			{ name: "RAG", highlight: true },
+			{ name: "Agentic AI (CrewAI, LangGraph)", highlight: true },
+			{ name: "ComfyUI", highlight: true },
+			{ name: "Higgsfield AI", highlight: true },
 			{ name: "Prompt Engineering", highlight: true },
+			{ name: "Vector DBs (ChromaDB, Pinecone)", highlight: true },
+			{ name: "PyTorch", highlight: true },
+			{ name: "Deep Learning", highlight: true },
 			{ name: "OpenCV", highlight: true },
 			{ name: "Scikit-Learn", highlight: true },
 			{ name: "TensorFlow", highlight: true },
-			{ name: "PyTorch", highlight: true },
 			{ name: "YOLO", highlight: true },
 		],
-		tools: [
-			"Model Training",
-			"Inference Pipelines",
-			"Evaluation",
-			"Experimentation",
-		],
+		tools: ["Model Training", "Inference Pipelines", "Evaluation"],
 	},
-	fullstack: {
-		title: "Full-Stack Development",
+	backend_web: {
+		title: "Backend & Web",
 		icon: WebhookIcon,
-		description: "End-to-end web application development",
+		description: "End-to-end web application architecture",
 		languages: [
+			{ name: "FastAPI", highlight: true },
 			{ name: "Node.js", highlight: true },
-			{ name: "React.js", highlight: true },
 			{ name: "Next.js", highlight: true },
+			{ name: "React.js", highlight: true },
+			{ name: "Django", highlight: true },
+			{ name: "RESTful APIs", highlight: true },
+			{ name: "Microservices", highlight: true },
 			{ name: "Flask", highlight: true },
-			{ name: "HTML", highlight: false },
-			{ name: "CSS", highlight: false },
 		],
-		tools: [
-			"REST APIs",
-			"Component Architecture",
-			"State Management",
-			"Deployment",
-		],
+		tools: ["Component Architecture", "State Management", "Deployment"],
 	},
 	frontend: {
 		title: "Frontend & UI/UX",
@@ -77,37 +77,34 @@ const skillCategories = {
 		],
 		tools: ["Wireframing", "Prototyping", "Design Systems", "Responsive Design"],
 	},
-	devops: {
-		title: "DevOps Cloud",
+	devops_cloud: {
+		title: "DevOps & Cloud",
 		icon: CloudIcon,
-		description: "Containerized development and deployment workflows",
-		languages: [{ name: "Docker", highlight: true }],
-		tools: ["Containerization", "Image Management", "Local Orchestration"],
-	},
-	database: {
-		title: "Database & Cache",
-		icon: DatabaseIcon,
-		description: "Data modeling, querying, and persistence",
+		description: "Deployment, orchestration, and infrastructure",
 		languages: [
+			{ name: "MLOps", highlight: true },
+			{ name: "Docker", highlight: true },
+			{ name: "Azure", highlight: true },
+			{ name: "Hugging Face Spaces", highlight: true },
+			{ name: "PostgreSQL", highlight: true },
 			{ name: "MySQL", highlight: true },
 			{ name: "MongoDB", highlight: true },
-			{ name: "PostgreSQL", highlight: true },
+			{ name: "Git", highlight: true },
 		],
-		tools: ["Schema Design", "Query Optimization", "Data Integrity"],
+		tools: ["Containerization", "Schema Design", "Data Integrity"],
 	},
 	tools: {
-		title: "Tools & Security",
+		title: "Tools & Integrations",
 		icon: ShieldIcon,
 		description: "Daily tools and API integrations for secure delivery",
 		languages: [
-			{ name: "Git", highlight: true },
-			{ name: "OpenAI API", highlight: true },
-			{ name: "Gemini API", highlight: true },
 			{ name: "VSCode", highlight: true },
 			{ name: "Power Automate", highlight: false },
 			{ name: "Power Apps", highlight: false },
+			{ name: "OpenAI API", highlight: true },
+			{ name: "Gemini API", highlight: true },
 		],
-		tools: ["Version Control", "API Integration", "Automation", "Security Awareness"],
+		tools: ["Version Control", "API Integration", "Automation"],
 	},
 };
 
@@ -258,6 +255,7 @@ function SkillDetails({ selectedSkill }) {
       </motion.div>
 
       {/* Tools Section */}
+      {selectedSkill.tools && selectedSkill.tools.length > 0 && (
       <motion.div
         className="bg-white/20 border border-gray-300/20 rounded-2xl p-8"
         initial={{ opacity: 0, x: 50 }}
@@ -285,6 +283,7 @@ function SkillDetails({ selectedSkill }) {
           ))}
         </motion.div>
       </motion.div>
+      )}
     </motion.div>
   );
 }

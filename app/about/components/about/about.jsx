@@ -118,30 +118,30 @@ export default function About() {
 					</h2>
 					<p className="text-gray-600 text-justify title text-lg leading-relaxed">
 						I am an{" "}
-						<span className="text-black font-semibold">AI &amp; Web Developer</span>{" "}
+						<span className="text-black font-semibold">Agentic AI Engineer &amp; Technical Partner</span>{" "}
 						specializing in{" "}
 						<span className="text-black font-semibold">
-							Deep Learning, React, and Next.js
+							Multi-Agent Workflows, Distributed GenAI, and Full-Stack Development
 						</span>
-						. As a Computer Science (AIML) student at Dronacharya College of Engineering, I craft innovative solutions at the intersection of modern web technologies and artificial intelligence.
+						. As a Computer Science (AIML) student at Dronacharya College of Engineering, I craft innovative solutions at the intersection of enterprise architecture and cutting-edge artificial intelligence.
 						<br />
 						<br />
-						I am currently the{" "}
-						<span className="text-black font-semibold">Co-founder of Paradize.space</span>
-						, a startup focused on building shared computing and decentralized compute infrastructure. I am also developing{" "}
+						I am currently an{" "}
+						<span className="text-black font-semibold">Agentic AI Developer Intern at JK Papers</span>
+						, building enterprise workflows, and a{" "}
 						<span className="text-black font-semibold">
-							&quot;Thoughts - The AI Diary,&quot;
-						</span>{" "}
-						a digital diary that uses AI analysis for mood tracking and insight generation. Beyond my projects, my experience includes serving as the{" "}
+							Technical Partner &amp; CTO at Veldon Lab
+						</span>
+						, where I architect distributed sub-services and custom video pipelines. Beyond my current roles, my experience includes serving as the{" "}
 						<span className="text-black font-semibold">
 							Design Lead
 						</span>{" "}
-						for the Google Developer Group (GDG) at my college, worked as an{" "}
-						<span className="text-black font-semibold">ML Developer Intern</span> at JCB India, and competed as a{" "}
+						for the Google Developer Group (GDG) at my college, working as an{" "}
+						<span className="text-black font-semibold">ML Developer Intern</span> at JCB India, and competing as a{" "}
 						<span className="text-black font-semibold">
 							Smart India Hackathon 2024 Finalist
 						</span>
-						. I specialize in building scalable full-stack applications, designing intuitive user experiences, and integrating cutting-edge AI technologies to deliver measurable impact.
+						. I specialize in building scalable multi-agent frameworks, designing intuitive user experiences, and integrating complex generative AI technologies to deliver measurable enterprise impact.
 					</p>
 					<GitHubStatsCard />
 				</motion.div>

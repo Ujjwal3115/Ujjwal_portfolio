@@ -199,7 +199,7 @@ const MyPage = () => {
 								type: "spring",
 							}}>
 							<VariableProximity 
-								label={"AI & Full Stack Web Developer"}
+								label={"Agentic AI Engineer & Technical Partner"}
 								className={'variable-proximity-demo'}
 								fromFontVariationSettings="'wght' 500, 'opsz' 9"
 								toFontVariationSettings="'wght' 1000, 'opsz' 40"
@@ -217,10 +217,7 @@ const MyPage = () => {
 								type: "spring",
 							}}>
 							<p className="title text-md 2xl:text-xl tracking-wider text-gray-600 leading-[1.7rem] cursor-default md:flex-1">
-								Hi! I am Ujjwal, an ML enthusiast and full-stack developer. I am
-								passionate about tackling complex problems by bridging the gap
-								between data-driven machine learning models and user-centric web
-								applications.
+								Building enterprise multi-agent workflows by day at JK Papers, and architecting distributed GenAI ecosystems and custom video pipelines by night as a Tech Partner at Veldon Lab.
 							</p>
 							<div className="flex flex-col items-center justify-center md:ml-6 md:shrink-0">
 								<div className="mb-2">
