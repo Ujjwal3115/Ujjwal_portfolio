@@ -2,6 +2,35 @@
   "Projects": [
     {
       "show": true,
+      "title": "ANTRX Technology Systems",
+      "desc": [
+        "ANTRX is a modern technology systems company website designed to showcase unified network infrastructure, cloud security, and smart automation through a premium 'cyber-physical' aesthetic.",
+        "The application is built on Next.js 16 App Router for maximum performance and features a robust fluid-typography design system with Tailwind CSS. It utilizes hardware-accelerated GSAP scroll animations and complex 3D isometric layouts to deliver a highly interactive, native-feeling user experience."
+      ],
+      "year": "2026",
+      "preview": "https://antrx.tech/",
+      "thumbnail": "/image/projects/web/antrx/antrx1.png",
+      "images": [
+        "/image/projects/web/antrx/antrx1.png",
+        "/image/projects/web/antrx/antrx2.png",
+        "/image/projects/web/antrx/antrx3.png",
+        "/image/projects/web/antrx/antrx4.png"
+      ],
+      "tech": [
+        "Next.js 16",
+        "React Server Components",
+        "Tailwind CSS",
+        "GSAP",
+        "Fluid Typography",
+        "Vercel"
+      ],
+      "slug": "antrx-technology-systems",
+      "category": [
+        1
+      ]
+    },
+    {
+      "show": true,
       "title": "NeuroDecode",
       "desc": [
         "NeuroDecode is an AI-powered developer tool designed to bridge the gap between visual system design and executable code. It allows users to upload a neural network architecture diagram and automatically translates it into structured Markdown analysis and raw, deployable PyTorch code.",

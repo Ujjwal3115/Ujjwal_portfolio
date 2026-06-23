@@ -9,6 +9,7 @@ import Hr from "@/components/Hr";
 import Button from "@/components/Button";
 
 import NeuroDecode4 from "@/public/image/projects/ai/Neurodecode/ncd_4.webp";
+import antrx1 from "@/public/image/projects/web/antrx/antrx1.png";
 import ProjectAll from "@/public/image/projects.png";
 
 const categoryTabs = [
@@ -125,8 +126,8 @@ export default function Page() {
 										className="relative w-11/12 md:w-5/6 shadow-lg overflow-hidden aspect-video">
 										<div className="relative w-full h-full overflow-hidden">
 											<Image
-												src={NeuroDecode4}
-												alt="NeuroDecode final output"
+												src={antrx1}
+												alt="ANTRX Final Output"
 												fill
 												placeholder="blur"
 												className="object-cover"
@@ -138,6 +139,41 @@ export default function Page() {
 								</div>
 							</div>
 						</div>
+						<motion.div
+							className="flex justify-center items-start flex-col mb-5 px-5 md:px-10 pt-6 md:pt-0"
+							initial={{ opacity: 0, x: 200 }}
+							whileInView={{ opacity: 1, x: 0 }}
+							transition={{ delay: 0.5, type: "spring" }}>
+							<h3 className="text-2xl md:text-3xl font-bold tracking-wider mb-3">
+								ANTRX
+							</h3>
+							<p className="text-gray-600 text-justify title text-base md:text-lg">
+								ANTRX is an agency that provide IT engineering solutions.
+								From network infrastructure and fiber to security, cloud, and smart automation,
+								ANTRX builds dependable technology systems for businesses and modern homes.
+							</p>
+							<div className="mt-4 flex gap-3 flex-wrap">
+								<Button variation="primary">
+									<Link href="/projects/antrx-technology-systems">More</Link>
+								</Button>
+								<Button variation="secondary">
+									<a
+										href="https://antrx.tech"
+										target="_blank"
+										rel="noopener noreferrer">
+										Visit
+									</a>
+								</Button>
+							</div>
+						</motion.div>
+					</div>
+				</motion.div>
+				<motion.div
+					initial={{ opacity: 0, y: 40 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					transition={{ duration: 0.4, ease: "easeOut" }}
+					className="w-full mx-auto max-w-7xl mb-10">
+					<div className="relative w-full mx-auto gap-4 grid grid-cols-1 md:grid-cols-2 mb-10">
 						<motion.div
 							className="flex justify-center items-start flex-col mb-5 px-5 md:px-10 pt-6 md:pt-0"
 							initial={{ opacity: 0, x: 200 }}
@@ -166,6 +202,28 @@ export default function Page() {
 								</Button>
 							</div>
 						</motion.div>
+						<div className="flex justify-center items-start flex-col mb-8 md:mb-5 px-5 md:px-0">
+							<div className="images relative w-full">
+								<div className="relative w-full flex justify-center items-center">
+									<motion.div
+										initial={{ opacity: 0, scale: 0.5, x: 100 }}
+										whileInView={{ opacity: 1, scale: 1, x: 0 }}
+										className="relative w-11/12 md:w-5/6 shadow-lg overflow-hidden aspect-video">
+										<div className="relative w-full h-full overflow-hidden">
+											<Image
+												src={NeuroDecode4}
+												alt="NeuroDecode final output"
+												fill
+												placeholder="blur"
+												className="object-cover"
+												sizes="(max-width: 768px) 80vw, 45vw"
+												loading="lazy"
+											/>
+										</div>
+									</motion.div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</motion.div>
 			</section>
@@ -203,22 +261,22 @@ export default function Page() {
 				</div>
 
 				<div className="w-full max-w-7xl mx-auto">
-						{filteredProjects.length > 8 ? (
-							<p className="mb-4 text-sm text-gray-500">
-								Showing the first 8 projects in this category. Open the archive for the full list.
-							</p>
-						) : null}
-						{visibleProjects.length > 0 ? (
-							<div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-								{visibleProjects.map((project, index) => (
+					{filteredProjects.length > 8 ? (
+						<p className="mb-4 text-sm text-gray-500">
+							Showing the first 8 projects in this category. Open the archive for the full list.
+						</p>
+					) : null}
+					{visibleProjects.length > 0 ? (
+						<div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+							{visibleProjects.map((project, index) => (
 								<ProjectCard
 									key={project.slug}
 									project={project}
 									index={index}
 									activeCategory={activeCategory}
 								/>
-								))}
-							</div>
+							))}
+						</div>
 					) : (
 						<div className="rounded-2xl border border-gray-300 bg-gray-50 p-8 text-center text-gray-600">
 							No projects match this category yet.
